@@ -2,9 +2,11 @@ class SearchController < ApplicationController
 	def search
 		if params[:target] == "User"
 			@users = search_user(params[:word],params[:style])
+			@word = params[:word]
 			render "search/search_user"
 		elsif params[:target] == "Book"
 			@books = search_book(params[:word],params[:style])
+			@word = params[:word]
 			render "search/search_book"
 		end
 	end
